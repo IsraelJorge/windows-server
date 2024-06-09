@@ -1,0 +1,253 @@
+<h1>3.1 O são IIS & FTP?</h1>
+
+<p>
+  O IIS (Internet Information Services) é um servidor web desenvolvido pela
+  Microsoft para sistemas operacionais Windows, fornecendo uma plataforma
+  robusta para hospedar sites, aplicativos e serviços na web. Como componente
+  essencial do Windows Server, ele oferece suporte a vários protocolos de
+  comunicação, incluindo HTTP, HTTPS, FTP, SMTP e outros.
+</p>
+<p>
+  Já o FTP (File Transfer Protocol) é um protocolo padrão de rede usado para
+  transferir arquivos entre um cliente e um servidor em uma rede TCP/IP,
+  permitindo upload, download, exclusão e renomeação de arquivos em um servidor
+  remoto.
+</p>
+
+<h1>3.2 Instalação dos serviços ISS e FTP</h1>
+
+<p>
+  1 - Abra o Dashboard do Server Manager e clique em "Manage", em seguida,
+  selecione "Add roles and features". Isso iniciará o assistente para adicionar
+  funções e recursos.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-21.jpg"
+  width="50%"
+/>
+
+<p>
+  2 - Na aba "Installation Type", escolha "Role-based or feature-based
+  installation" e clique em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-22.jpg"
+  width="50%"
+/>
+
+<p>
+  3 - Na aba "Server Selection", escolha "Select a server from the server pool",
+  selecione o servidor desejado e clique em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-23.jpg"
+  width="50%"
+/>
+
+<p>
+  4 - Na aba "Server Roles", selecione "Web Server (IIS)" e clique em "Next".
+  Isso abrirá uma nova página (Add Roles and Features Wizard) para adicionar as
+  funcionalidades necessárias para instalar o Servidor Web. Na página "Add Roles
+  and Features Wizard", marque "Include management tools (ifapplicable)" e
+  clique em "Add Features".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-24.jpg"
+  width="50%"
+/>
+
+<p>
+  5 - Na aba "Role Services", selecione os serviços mostrados abaixo e clique em
+  "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-25.jpg"
+/>
+
+<p>6 - Na aba "Confirmation", clique em "Install" para iniciar a instalação.</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-26.jpg"
+  width="50%"
+/>
+
+<p>
+  7 - Após a instalação, verifique se todas as instalações foram concluídas com
+  sucesso e, em seguida, clique em "Close".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-27.jpg"
+  width="50%"
+/>
+
+<p>
+  8 - De volta ao Dashboard do Server Manager, você verá que o item "IIS" foi
+  adicionado ao menu lateral esquerdo.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-28.jpg"
+  width="50%"
+/>
+
+<p>
+  9 - Para verificar se o Servidor Web está funcionando corretamente, abra o
+  navegador e acesse o localhost (http://127.0.0.1). Isso exibirá o site padrão
+  do IIS.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-29.jpg"
+  width="50%"
+/>
+
+<h1>3.3 Adicionando um novo site</h1>
+
+<p>
+  No Dashboard do Gerenciador do Servidor, clique no menu superior "Tools" e, em
+  seguida, clique em "Internet Information Service (IIS) Manager". Isso abrirá a
+  página de Gerenciamento do Serviço IIS (Internet Information Service (IIS)
+  Manager) e siga os passos do vídeo abaixo.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/criando-site-server.gif"
+/>
+
+<p>Na pasta que foi criada adicione o arquivo index.html do seu site</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-30.jpg"
+  width="50%"
+/>
+
+<p>
+  Acesse as configurações de <code>Firewall</code> do Windows Server para
+  liberar a porta 8080.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/configurando-porta.gif"
+/>
+
+<p>Após estes passos conseguirá acessar o site adicionado.</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-31.jpg"
+  width="50%"
+/>
+
+<h1>3.4 Configurando Restrições de IP e Domínio no IIS</h1>
+
+<p>
+  O IIS oferece Restrições de Endereço IP e de Domínio como medidas de segurança
+  para que administradores controlem o acesso aos sites e aplicativos web
+  hospedados. Essas configurações permitem a liberação ou bloqueio de
+  solicitações de acesso com base em endereços IP específicos, intervalos de IP
+  ou nomes de domínio.
+</p>
+
+<p>1 - Clique em "IP Address and Domain Restrictions".</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-32.jpg"
+  width="50%"
+/>
+
+<p>
+  2 - Na página "IP Address and Domain Restrictions", clique em "Add Allow
+  Entry...". Insira a faixa de IP que você configurou anteriormente na rede
+  local (por exemplo, 192.168.0.0). Isso garante que os computadores dessa faixa
+  de rede podem acessar o Servidor Web. Na mesma pagina clique em "Add Deny
+  Entry...". Insira a faixa de IP que você deseja bloquear o acesso ao Servidor
+  Web (por exemplo, 0.0.0.0). Isso garante que outros computadores não podem
+  acessar o Servidor Web.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-33.jpg"
+  width="50%"
+/>
+
+<h1>3.5 Configurando FTP</h1>
+
+<p>
+  Quando instalamos o Servidor Web anteriormente, já incluímos a instalação do
+  Servidor FTP. Agora, vamos configurar esse serviço.
+</p>
+
+<p>
+  1 - Na página de Gerenciamento do Serviço IIS (Internet Information Service
+  (IIS) Manager). Clique em "Sites" no menu lateral esquerdo. Em seguida, clique
+  em "Add FTP Site...". Isso abrirá o assistente para adicionar um novo site
+  FTP.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-34.jpg"
+  width="50%"
+/>
+
+<p>
+  2 - No menu "Site Information", adicione o nome e o diretório do novo site FTP
+  e prossiga clicando em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-35.jpg"
+  width="50%"
+/>
+
+<p>
+  3 - No menu "Binding and SSL Settings", marque a opção "Start FTP site
+  automatically". No menu Binding, selecione a opção "All unassigned" como
+  endereço IP e no menu SSL, marque a opção "No SSL" se você não possui um
+  certificado SSL. Em seguida, clique em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-36.jpg"
+  width="50%"
+/>
+
+<p>
+  4 - No menu "Authentication and Authorization Information", marque as opções
+  "Anounymous" e "Basic" no menu Authentication. No menu Authorization, permita
+  que todos os usuários tenham acesso selecionado a opção "All users" e marque
+  as opções de permissões "Read" e "Write" para permitir leitura e gravação. Em
+  seguida, clique em "Finish".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-37.jpg"
+  width="50%"
+/>
+
+<p>
+  5 - Para ver se o Servidor FTP está funcionando corretamente, selecione o site
+  FTP e, em seguida, clique em "Explore" no menu lateral direito para abrir a
+  pasta onde os arquivos deverão ser armazenados. Adicione alguns arquivos de
+  teste.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-38.jpg"
+  width="50%"
+/>
+
+<p>
+  6 - Na barra de pesquisa do Windows Explorer digite "ftp://127.0.0.1" e clique
+  no botão Enter.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/acessando-servidor-ftp.gif"
+/>
+
+<p>Pronto Serviços de IIS e FTP devidamente configurados.</p>
