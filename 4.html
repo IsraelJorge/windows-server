@@ -1,0 +1,238 @@
+<p>
+  O serviço de compartilhamento de arquivos do Windows Server 2016 é uma
+  funcionalidade essencial que permite a empresas e organizações gerenciar e
+  compartilhar dados de forma eficiente e segura. Este serviço utiliza o
+  protocolo SMB (Server Message Block) para permitir que usuários em uma rede
+  acessem arquivos e pastas armazenados no servidor. Com o Windows Server 2016,
+  os administradores podem configurar permissões detalhadas, controlar o acesso
+  e garantir a segurança dos dados compartilhados.
+</p>
+<p>Nesta etapa será apresentado sua instalação e configuração.</p>
+
+<h1>4.1 Instalação</h1>
+
+<p>
+  1 - Abra o Dashboard do Server Manager e clique em "Manage", em seguida,
+  selecione "Add roles and features". Isso iniciará o assistente para adicionar
+  funções e recursos.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-21.jpg"
+  width="50%"
+/>
+
+<p>
+  2 - Na aba "Installation Type", escolha "Role-based or feature-based
+  installation" e clique em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-22.jpg"
+  width="50%"
+/>
+
+<p>
+  3 - Na aba "Server Selection", escolha "Select a server from the server pool",
+  selecione o servidor desejado e clique em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-23.png"
+  width="50%"
+/>
+
+<p>
+  4- Na aba "Server Roles", marque as opções abaixo (adicione as features
+  necessárias) e, em seguida, clique em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-37.png"
+  width="50%"
+/>
+
+<p>4 - Na aba "Confirmation", clique em "Install" para iniciar a instalação.</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-38.png"
+  width="50%"
+/>
+
+<p>
+  8 - Após a instalação, confirme se todas as instalações foram bem-sucedidas e,
+  em seguida, clique em "Close".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-39.png"
+  width="50%"
+/>
+
+<p>
+  9 - De volta ao Dashboard do Gerenciador do Servidor (Server Manager), você
+  verá que foi adicionado o item "File Server Resource Manager" no menu superior
+  "Tools". Também foi adicionado os itens "Shares", "iSCSI" e "Work Folders" no
+  menu "File and Storage Services" do Gerenciador do Servidor.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-40.jpg"
+  width="50%"
+/>
+
+<h1>4.2 Configurando a restrição de arquivos executáveis</h1>
+
+<p>
+  1 - No Dashboard do Gerenciador do Servidor, clique no menu superior "Tools"
+  e, em seguida, clique em "Internet Information Service (IIS) Manager". Isso
+  abrirá a página de Gerenciador do Servidor de Arquivos (File Server Resource
+  Manager). Clique em "File Screen Templates", localizado em "File Screening
+  Management", no menu lateral esquerdo.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-41.jpg"
+  width="50%"
+/>
+
+<p>
+  2 - Selecione a opção "Active screening" em Screening type e, em "File
+  groups", escolha "Executable Files". Depois, clique em "Edit...". Isso abrirá
+  um assistente para configurar as propriedades do grupo de arquivos
+  executáveis. No campo "Files to include", insira o nome ou a extensão dos
+  arquivos que o servidor deve bloquear e clique em "Add" (por exemplo: *.sh e
+  *.macho). Após adicionar todos os arquivos ou extensões que você deseja
+  bloquear, clique em "OK".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/configurando-restriçãode-arquivos.gif"
+/>
+
+<p>
+  3 - Clique em "OK" para confirmar as alterações. Isso abrirá um tela para você
+  selecionar como quer aplicar as mudanças feitas no template, marque a opção
+  "Apply template to all derived file screens" para aplicar as mudanças em todos
+  os arquivos derivados.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-42.jpg"
+  width="50%"
+/>
+
+<h1>4.3 Configurando pasta compartilhada</h1>
+
+<p>
+  1 - No diretório C:, crie uma pasta chamada share para o compartilhamento e no
+  Dashboard do Gerenciador do Servidor, clique no item "File and Storage
+  Services" do menu lateral esquerdo e, em seguida, clique em "Shares", Clique
+  em "to create a file share, start the New Share Wizard". Isso abrirá um
+  assistente de compartilhamento.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-43.jpg"
+  width="50%"
+/>
+
+<p>
+  2 - Na aba "Select Profile", selecione a opção "SMB Share - Advanced" e clique
+  em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-44.png"
+  width="50%"
+/>
+
+<p>
+  3 - Na aba "Share Location", marque a opção "Type a custom path" e clique em
+  "Browse..." para escolher a pasta que será compartilhada, selecione a pasta
+  “share” que criamos para compartilhar e clique em "Next".
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-45.png"
+  width="50%"
+/>
+
+<p>
+  4 - Na aba “Specify share name” digite um nome e uma descrição para sua pasta
+  compartilhada e clique em “Next”.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-46.png"
+  width="50%"
+/>
+
+<p>
+  5 - Na aba “Configure share settings” marque os itens “Allow caching of share”
+  e “Encrypt data access" e clique em “Next”.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-47.png"
+  width="50%"
+/>
+
+<p>
+  6 - Na aba “Specify permissions to control access” clique em “Customize
+  permissions….” Uma nova janela será aberta para podermos configurar regras de
+  acesso a essa pasta compartilhada. Vou dá acesso apenas para os usuários
+  Administradores.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-48.jpg"
+  width="50%"
+/>
+
+<p>
+  7 - Clique em “Disable inheritance” e selecione “Remove all inherited
+  permissions from this object”. Com isso, retiramos as regras aplicadas por
+  padrão.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-49.png"
+  width="50%"
+/>
+
+<p>
+  8 - Vamos adicionar primeiro o acesso para os Administradores clicando em
+  “Add”. Clique no link superior “Select a principal” e adicione o grupo
+  “Administrators”, depois clique em “OK”.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-50.png"
+  width="50%"
+/>
+
+<p>
+  9 - Na seção de permissões marque todas as opções disponíveis para os
+  administradores.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-51.png"
+  width="50%"
+/>
+
+<p>
+  10 - Na aba “Confirm selections” clique em Create, por fim na janela View
+  results clique em Close, a pasta criada.
+</p>
+
+<img
+  src="https://github.com/IsraelJorge/windows-server/blob/main/assets/imagem-51.png"
+  width="50%"
+/>
+
+<p>
+  Ao acessar o IP do servidor pelo Windows Explorer nos computadores dos
+  Administradores, será possível visualizar a pasta compartilhada.
+</p>
