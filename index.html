@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <h1>1.Instalação</h1>
+
+    <img src="assets/licencas-windows-server-2016.png" alt="" />
+
+    <h2>1.1 Introdução</h2>
+    <p>
+      O Windows Server é um sistema operacional desenvolvido pela Microsoft,
+      especificamente concebido para uso em servidores e infraestruturas de
+      rede. Ele disponibiliza uma variedade de recursos avançados, incluindo
+      compartilhamento de arquivos, serviços de diretório, virtualização e
+      gerenciamento centralizado. Este sistema é amplamente adotado por
+      organizações de diversos portes e é altamente compatível com uma ampla
+      gama de aplicativos de terceiros. O Windows Server está disponível em
+      diferentes edições, permitindo que as organizações escolham a versão que
+      melhor se adapta às suas necessidades específicas. Em suma, é uma solução
+      confiável para a hospedagem de serviços e aplicativos empresariais. Espero
+      que este guia seja útil para você. Bons estudos!
+    </p>
+
+    <h2>1.2 Baixar o <strong>.iso</strong></h2>
+    <p>
+      Visite o
+      <a
+        href="https://www.microsoft.com/pt-br/evalcenter/download-windows-server-2016"
+        >site oficial</a
+      >
+      para baixar o arquivo .iso do Windows Server 2016. Vou utilizar a versão
+      em Inglês (Estados Unidos) de 64 bits.
+    </p>
+
+    <img src="assets/imagem-1.png" alt="" />
+    <p>
+      Espere até que o download seja finalizado para continuar com a instalação.
+    </p>
+
+    <h2>1.3 Criar uma máquina virtual no VirtualBox</h2>
+    <img src="assets/imagem-2.png" alt="" />
+    <p>
+      Com o VirtualBox aberto basta clicar em <strong>“Máquina -> Novo”</strong>
+    </p>
+
+    <img src="assets/imagem-3.png" alt="" />
+    <p>
+      No próximo passo, deve-se selecionar um nome para o servidor, a pasta onde
+      a máquina virtual será salva e o arquivo .iso que foi baixado
+      anteriormente.
+    </p>
+
+    <img src="assets/imagem-4.png" alt="" />
+
+    <p>
+      No passo seguinte é destinado a configuração do “Hardware” da máquina
+      virtual, no meu caso estou utilizando 6GB de memória RAM e 6 núcleos de
+      processamento, você pode escolher de acordo com as limitações da sua
+      máquina.
+    </p>
+
+    <img src="assets/imagem-5.png" alt="" />
+    <p>
+      Nesta etapa, define-se o tamanho do disco que será alocado para a máquina
+      virtual. Novamente, você pode selecionar o tamanho conforme as limitações
+      do seu hardware. Para o Windows Server 2016, é recomendado um tamanho
+      mínimo de 50GB.
+    </p>
+
+    <img src="assets/imagem-6.png" alt="" />
+
+    <p>
+      Ao final irá aparecer um resumo da configurações feitas, para prosseguir
+      basta clicar em <strong>“finalizar”</strong>
+    </p>
+
+    <img src="assets/Gif-configurando a rede.gif" alt="" />
+
+    <p>
+      Antes de começar a instalação altere a configuração de rede de modo
+      <code>NAT</code>
+      para o modo <code>BRIGDE</code> e é aconselhável desconectar a máquina
+      virtual da internet para tornar o processo mais rápido.
+    </p>
+
+    <img src="assets/imagem-7.png" alt="" />
+
+    <p>
+      Depois de fazer as mudanças necessárias, clique no botão
+      <strong>"Iniciar"</strong> para começar o processo de instalação.
+    </p>
+
+    <h2>1.4 Instalação do Windows Server 2016</h2>
+
+    <img src="assets/imagem-8.png" alt="" />
+
+    <p>
+      Para começar a instalação, na primeira tela que aparece selecione o idioma
+      que deseja instalar, o formato de hora e moeda e o teclado ou método de
+      entrada e então clique em "Next".
+    </p>
+
+    <img src="assets/imagem-9.png" alt="" />
+
+    <p>
+      Na próxima tela clique em "Install Now" para iniciar o processo de
+      instalação.
+    </p>
+
+    <img src="assets/imagem-10.png" alt="" />
+
+    <p>
+      Na tela de seleção do sistema operacional, selecione a opção "Windows
+      Server 2016 Standard Evaluation (Desktop Experience)" para instalar a
+      versão padrão com interface gráfica.
+    </p>
+
+    <img src="assets/imagem-11.png" alt="" />
+
+    <p>Aceite os termos para continuar.</p>
+
+    <div style="display: flex; gap: 10px">
+      <img src="assets/imagem-12.png" style="width: 50%" alt="" />
+      <img src="assets/imagem-13.png" style="width: 50%" alt="" />
+    </div>
+    <p>
+      Escolha o tipo de instalação "Custom: Install Windows only (advanced)"
+      para fazer uma instalação personalizada e prossiga clicando em "Next".
+    </p>
+
+    <img src="assets/imagem-14.png" alt="" />
+    <p>
+      Aguarde enquanto o Windows Server é instalado no disco que você escolheu.
+      Uma vez concluída a instalação, o sistema será reiniciado automaticamente.
+      Aguarde enquanto o Windows Server realiza as configurações iniciais.
+    </p>
+
+    <img src="assets/imagem-15.png" alt="" />
+
+    <p>
+      Na etapa de configuração do usuário e senha, digite o nome de usuário ea
+      senha desejados e depois clique em "Finish" para finalizar
+    </p>
+
+    <img src="assets/imagem-16.png" alt="" />
+
+    <p>
+      Como eu estou utilizando o Linux, ao clicar
+      <code>Ctrl + Alt + Del</code> é a minha máquina real que responde a esse
+      comando, por isso tive que clicar em "Entrada" no menu superior, depois em
+      "Teclado" e por fim em "Inserir Ctrl-Alt-Del".
+    </p>
+
+    <img src="assets/imagem-17.png" alt="" />
+
+    <p>Entre com a senha escolhida dois passos atrás.</p>
+
+    <img src="assets/imagem-18.png" alt="" />
+
+    <p>
+      Feito, a instalação está finalizada. Agora você está na área de trabalho
+      do Windows Server.
+    </p>
+  </body>
+</html>
