@@ -1,5 +1,7 @@
 # Implementação de Servidor Windows 2016 com VirtualBox
 
+<img src="/assets/licencas-windows-server-2016.png" />
+
 Este repositório contém um tutorial detalhado sobre a implementação de um servidor Windows 2016 utilizando o VirtualBox para simular o ambiente de rede. Este trabalho foi desenvolvido para a disciplina de Redes II e tem como objetivo proporcionar um aprendizado prático sobre a configuração e administração de servidores em um ambiente virtualizado.
 
 👉 Acesse a [Wiki](https://github.com/IsraelJorge/windows-server/wiki) para mais detalhes
@@ -47,4 +49,5 @@ Antes de iniciar, certifique-se de ter os seguintes pré-requisitos:
 - [Documentação do Windows Server 2016](https://docs.microsoft.com/en-us/windows-server/)
 
 ---
+
 Este trabalho foi desenvolvido como parte da disciplina de Redes II, visando a aplicação prática dos conceitos discutidos em sala de aula.
